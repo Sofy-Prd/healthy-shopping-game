@@ -1,0 +1,154 @@
+* :before, after {
+  box-sizing:border-box;
+  
+  }
+ 
+  
+img {max-width:100%;}
+
+body {
+  margin:0;
+  font-family: 'Indie Flower', cursive;
+ }
+
+.dontDisplay {
+  display:none;
+ }
+
+header {
+  padding:auto;
+  height: 100vh;
+  text-align: center;
+  background: rgb(116,204,82);
+  background: linear-gradient(180deg, rgba(116,204,82,1) 0%, rgba(160,212,67,1) 36%, rgba(184,220,52,1) 100%);
+  
+  }
+
+header h1 {
+  font-size: 4em;
+  margin :0;
+  padding: 0.2em 0;
+ 
+  
+}
+
+
+header img {
+  width: 15vw;
+}
+
+header h2 {
+  font-size:3em;
+  margin :0.25em;
+}
+
+header p {
+  font-size: 1.2em;
+}
+
+header button {
+  background:green;
+  margin-top:1em;
+  padding:1em;
+  box-shadow:none;
+  border:0 none;
+  color:white;
+  font-size:1.5em;
+  font-weight: bold;
+  border-radius : 0.25em;
+  font-weight: bold;
+}
+
+@keyframes myslidein {
+  0% {
+    margin-left: 0%;
+  }
+
+  100% {
+    margin-left: 88%;
+  }
+}
+
+#childTrolley {
+  margin:0.5em;
+  
+  width: 20vh;
+  display:block;
+  animation: myslidein 5s;
+}
+  
+
+/* .canvas {
+ background-color: pink;
+}  */
+
+.game-board {
+  display:flex;
+
+}
+
+
+.barreDeSante {
+  margin-top : 3em;
+  margin-left :1em;
+}
+
+.barreDeSante h2 {
+  font-size: 3em;
+}
+
+
+progress {
+    
+    border: 0;
+    height: 18px;
+    border-radius: 9px;
+    background-color:#3df337;
+  }
+
+  progress::-webkit-progress-bar {
+    background-color:#f1ee14;
+  }
+  progress::-webkit-progress-value {
+   background-color: #3df337;
+  }
+
+
+
+
+.gif {
+  text-align: center;
+  padding-top:100px;
+  margin-left: auto;
+  margin-right:auto;
+  }
+  
+.gif img {
+  
+  width:50%;
+}
+
+.gameOver {
+margin : auto;
+width:50%;
+}
+
+.gameOver img {
+width:25%;
+}
+
+.gameOver button {
+  background: pink;
+  margin-top:1em;
+  padding:1em;
+  box-shadow:none;
+  border:0 none;
+  color:white;
+  font-size:1.5em;
+  font-weight: bold;
+  border-radius : 0.25em;
+  font-weight: bold;
+}
+
+
+

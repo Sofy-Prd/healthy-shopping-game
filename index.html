@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Healthy Shopping</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+ 
+  <header>
+    <h1>Healthy Shopping</h1>
+    <img src="images/vegetables.png" alt="healthy food">
+    <h2>Objective</h2>
+    <p>Fill your cart with as much healthy food as you can and avoid junk food</p>
+    <p>Use the left and right arrow to control the trolley !</p>
+    <button id="start-button">Start Game</button>
+    <br>
+    <img id="childTrolley" src="images/childsWithTrolley.png" alt="healthy food">
+    
+  </header>
+
+  <div class="game-board">
+    <div class="canvas dontDisplay">
+     <canvas width="1000" height="700">
+     </canvas>
+    </div>
+
+    <div class="score">
+      <div class="barreDeSante dontDisplay">
+        <h3>Health Level </h3>
+        <p id="numberLevel"></p>
+        <progress id="health" value="" max=""></progress> <p id="points"></p>
+      </div>
+          
+      <div class="gif levelOne dontDisplay">
+       <img src="images/avocado.gif" alt="dancing broccoli">
+       <p>"Congratulations! You won the first level !"</p>
+      </div>
+
+      <div class="gif levelTwo dontDisplay">
+        <img src="images/brocolis.webp" alt="dancing avocado">
+        <p>"Congratulations! You won the second level !"</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="gif gameOver dontDisplay">
+    <h1>Game Over</h1>
+    <img src="images/doctor.webp" alt="doctor">
+    <p>Too bad you ate too much junk food, you're sick and you have to go to the hospital</p>
+    <button id="restart-button">Restart Game</button>
+  </div>
+
+<!-- </div> -->
+
+  <script src="trolley.js"></script>
+  <script src="food.js"></script>
+  <script src="main.js"></script>
+ 
+</body>
+</html>
