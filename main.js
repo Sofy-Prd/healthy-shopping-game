@@ -12,6 +12,14 @@ let speedHealthy;
 let moduloFrameJunk;
 let moduloFrameHealthy;
 
+function barre (){
+  document.getElementById("health").value = points;
+  document.getElementById("health").max=pointMaxLevel;
+  document.getElementById("numberLevel").innerHTML=`Level ${level}`;
+  document.getElementById("points").innerHTML=`${points} sur ${pointMaxLevel}`;
+}
+
+
 function init (){
   junkFoodGame=[];
   healthyFoodGame=[];
@@ -24,18 +32,13 @@ function init (){
   moduloFrameHealthy=300;
   gameover = false;
   document.querySelector(".canvas").style.background="#ddf072";
+  barre()
 }
 
 const ctx = document.querySelector('canvas').getContext('2d');
 const W = ctx.canvas.width;
 const H = ctx.canvas.height;
 
-function barre (){
-  document.getElementById("health").value = points;
-  document.getElementById("health").max=pointMaxLevel;
-  document.getElementById("numberLevel").innerHTML=`Level ${level}`;
-  document.getElementById("points").innerHTML=`${points} sur ${pointMaxLevel}`;
-}
 
 
 
