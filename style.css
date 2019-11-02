@@ -15,13 +15,20 @@ body {
   display:none;
  }
 
+ /* ##     ## ########    ###    ########  ######## ########  
+    ##     ## ##         ## ##   ##     ## ##       ##     ## 
+    ##     ## ##        ##   ##  ##     ## ##       ##     ## 
+    ######### ######   ##     ## ##     ## ######   ########  
+    ##     ## ##       ######### ##     ## ##       ##   ##   
+    ##     ## ##       ##     ## ##     ## ##       ##    ##  
+    ##     ## ######## ##     ## ########  ######## ##     ##  */
+
 header {
   padding:auto;
   height: 100vh;
   text-align: center;
   background: rgb(116,204,82);
   background: linear-gradient(180deg, rgba(116,204,82,1) 0%, rgba(160,212,67,1) 36%, rgba(184,220,52,1) 100%);
-  
   }
 
 header h1 {
@@ -29,13 +36,6 @@ header h1 {
   margin :0;
   padding: 0.2em 0;
   color:white;
- 
-  
-}
-
-
-header img {
-  width: 15vw;
 }
 
 header h2 {
@@ -45,8 +45,16 @@ header h2 {
 }
 
 header p {
-  font-size: 1.2em;
+  font-size: 1.7em;
+  font-weight:bold;
+  margin-top:0.5em;
+  margin-bottom: 0.5em;
 }
+
+header img {
+  width: 15vw;
+}
+
 
 button {
   background:green;
@@ -60,6 +68,10 @@ button {
   border-radius : 0.25em;
   font-weight: bold;
   font-family: 'Indie Flower', cursive;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 @keyframes myslidein {
@@ -74,20 +86,33 @@ button {
 
 #childTrolley {
   margin:0.5em;
-  
   width: 20vh;
   display:block;
   animation: myslidein 5s;
 }
   
-
+/* ######      ###    ##     ## ########    ########   #######     ###    ########  ########  
+  ##    ##    ## ##   ###   ### ##          ##     ## ##     ##   ## ##   ##     ## ##     ## 
+  ##         ##   ##  #### #### ##          ##     ## ##     ##  ##   ##  ##     ## ##     ## 
+  ##   #### ##     ## ## ### ## ######      ########  ##     ## ##     ## ########  ##     ## 
+  ##    ##  ######### ##     ## ##          ##     ## ##     ## ######### ##   ##   ##     ## 
+  ##    ##  ##     ## ##     ## ##          ##     ## ##     ## ##     ## ##    ##  ##     ## 
+  ######   ##     ## ##     ## ########    ########   #######  ##     ## ##     ## ########   */
 
 .game-board {
-  display:flex;
+  height: 100vh;
+  
   background: rgb(116,204,82);
   background: linear-gradient(180deg, rgba(116,204,82,1) 0%, rgba(160,212,67,1) 36%, rgba(184,220,52,1) 100%);
 }
 
+.flexi {
+  display:flex;
+}
+
+.score {
+  height: 100vh;
+}
 .score h3 {
   font-size:2em;
   color:white;
@@ -107,7 +132,6 @@ button {
   font-size: 2em;
 }
 
-
 progress {
     
     border: 0;
@@ -124,19 +148,30 @@ progress {
   }
 
 
-
-
 .gif {
   text-align: center;
-  padding-top:100px;
+  padding-top:50px;
   margin-left: auto;
   margin-right:auto;
   }
   
 .gif img {
-  
   width:50%;
 }
+
+.gif p {
+  font-size: 1.5em;
+  margin-left:1em;
+  margin-right: 1em;
+}
+
+/* ######      ###    ##     ## ########     #######  ##     ## ######## ########  
+  ##    ##    ## ##   ###   ### ##          ##     ## ##     ## ##       ##     ## 
+  ##         ##   ##  #### #### ##          ##     ## ##     ## ##       ##     ## 
+  ##   #### ##     ## ## ### ## ######      ##     ## ##     ## ######   ########  
+  ##    ##  ######### ##     ## ##          ##     ##  ##   ##  ##       ##   ##   
+  ##    ##  ##     ## ##     ## ##          ##     ##   ## ##   ##       ##    ##  
+  ######   ##     ## ##     ## ########     #######     ###    ######## ##     ##  */
 
 .gameOver {
 margin : auto;
@@ -195,11 +230,35 @@ width: 100vw;
   animation: myslidein2 5s;
 }
 
-.gameOver button {
+/* .gameOver button  {
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
+} */
 
+.gameOver, .win {
+  margin : auto;
+  
+  background: rgb(116,204,82);
+  background: linear-gradient(180deg, rgba(116,204,82,1) 0%, rgba(160,212,67,1) 36%, rgba(184,220,52,1) 100%);
+  height: 100vh;
+  width: 100vw;
+  }
+  
+  
 
+  .win h1 {
+    margin-top:0;
+    text-align: center;
+    font-size: 6em;
+    font-weight:bolder;
+    color:green;
+    animation:clignote 1s infinite;
+  }
+  
+  .win p {
+    text-align: center;
+    font-size: 2em;
+    font-weight:bold;
+    } 
 

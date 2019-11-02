@@ -23,30 +23,38 @@
     
   </header>
 
-  <div class="game-board">
-    <div class="canvas dontDisplay">
-     <canvas width="1000" height="700">
-     </canvas>
+  <div class="game-board dontDisplay">
+    <div class="flexi">
+      <div class="canvas dontDisplay">
+      <canvas width="900" height="700">
+      </canvas>
+      </div>
+
+      <div class="score">
+        <div class="barreDeSante dontDisplay">
+          <h3>Health Level </h3>
+          <p id="numberLevel"></p>
+          <progress id="health" value="" max=""></progress> <p id="points"></p>
+        </div>
+            
+        <div class="gif levelOne dontDisplay">
+        <img src="images/littlePies.gif" alt="smiling littlePies">
+        <p>"Congratulations! You won the first level !"</p>
+        </div>
+
+        <div class="gif levelTwo dontDisplay">
+          <img src="images/banana.webp" alt="banana">
+          <p>"Congratulations! You won the second level !"</p>
+        </div>
+
+        <div class="gif levelThree dontDisplay">
+          <img src="images/avocado.gif" alt="dancing avocado">
+          <p>"Congratulations! You won the second level !"</p>
+        </div>
+      </div>
     </div>
-
-    <div class="score">
-      <div class="barreDeSante dontDisplay">
-        <h3>Health Level </h3>
-        <p id="numberLevel"></p>
-        <progress id="health" value="" max=""></progress> <p id="points"></p>
-      </div>
-          
-      <div class="gif levelOne dontDisplay">
-       <img src="images/avocado.gif" alt="dancing broccoli">
-       <p>"Congratulations! You won the first level !"</p>
-      </div>
-
-      <div class="gif levelTwo dontDisplay">
-        <img src="images/brocolis.webp" alt="dancing avocado">
-        <p>"Congratulations! You won the second level !"</p>
-      </div>
-
-    </div>
+  
+  
   </div>
 
   <div class="gameOver dontDisplay">
@@ -59,6 +67,19 @@
     <br>
     <button id="restart-button">Restart Game</button>
   </div>
+
+  <div class="win dontDisplay">
+      <h1>Congratulations you're a winner !</h1>
+      <p>You made the right choices for your health</p>
+      <div class="happyVegetables">
+        <img  src="images/cuteBroccoli.png" alt="cute Broccoli">
+        <img  src="images/cuteCarrot.png" alt="cute carrot">
+        <img  src="images/cuteNavet.png" alt="cute navet">
+        <img  src="images/cuteTomato.png" alt="cute tomato">
+      </div>
+      <br>
+      <button id="restart-button">Restart Game</button>
+    </div>
 
 <!-- </div> -->
 
