@@ -5,7 +5,7 @@ let lotFoodGame;
 let junk;
 let healthy;
 let lot;
-let gameover;
+let stopGame;
 let points;
 let level;
 let pointMaxLevel
@@ -33,8 +33,8 @@ function init (){
   speedHealthy=3;
   moduloFrameJunk=200;
   moduloFrameHealthy=300;
-  gameover = false;
-  document.querySelector(".canvas").style.background="#ddf072";
+  stopGame = false;
+  document.querySelector(".canvas").style.background="#f2b264";
   barre()
 }
 
@@ -156,7 +156,7 @@ function draw() {
     barre();
     document.querySelector(".levelOne").classList.remove("dontDisplay");
     setTimeout(function(){ document.querySelector(".levelOne").classList.add("dontDisplay");},3000);
-    document.querySelector(".canvas").style.background="#7ef76e";
+    document.querySelector(".canvas").style.background="#dcf04c";
     speedJunk=6;
     speedHealthy=5;
     trolley.speed=65;
@@ -171,7 +171,7 @@ function draw() {
     barre();
     document.querySelector(".levelTwo").classList.remove("dontDisplay");
     setTimeout(function(){ document.querySelector(".levelTwo").classList.add("dontDisplay");},3000);
-    document.querySelector(".canvas").style.background="#4df547";
+    document.querySelector(".canvas").style.background="#aad041";
     speedJunk=9;
     speedHealthy=7;
     trolley.speed=80;
@@ -186,7 +186,7 @@ function draw() {
     barre();
     document.querySelector(".levelThree").classList.remove("dontDisplay");
     setTimeout(function(){ document.querySelector(".levelThree").classList.add("dontDisplay");},3000);
-    document.querySelector(".canvas").style.background="#4df547";
+    document.querySelector(".canvas").style.background="#54992e";
     speedJunk=12;
     speedHealthy=9;
     trolley.speed=100;
@@ -197,7 +197,7 @@ function draw() {
 
   
   if (points<0) {
-   gameover=true;
+   stopGame=true;
    document.querySelector(".gameOver").classList.remove("dontDisplay");
    document.querySelector(".game-board").classList.add("dontDisplay");
    document.querySelector(".barreDeSante").classList.add("dontDisplay");
@@ -205,8 +205,8 @@ function draw() {
 
 } 
 
-if (points>1) {
-  gameover=true;
+if (points>15) {
+  stopGame=true;
   document.querySelector(".win").classList.remove("dontDisplay");
   document.querySelector(".game-board").classList.add("dontDisplay");
   document.querySelector(".barreDeSante").classList.add("dontDisplay");
@@ -243,7 +243,7 @@ function animLoop() {
   frames++;
   draw()
   
-  if (!gameover) {
+  if (!stopGame) {
     requestAnimationFrame(animLoop);
   }
 }
@@ -266,10 +266,21 @@ document.getElementById("start-button").onclick = function() {
 };
 
 document.getElementById("restart-button").onclick = function() {
-  
-  document.querySelector(".gameOver").classList.add("dontDisplay");
+  document.querySelector(".game-board").classList.remove("dontDisplay");
   document.querySelector(".canvas").classList.remove("dontDisplay");
   document.querySelector(".barreDeSante").classList.remove("dontDisplay");
+  document.querySelector(".gameOver").classList.add("dontDisplay");
+  
+  startGame();
+  
+};
+
+document.getElementById("restart-button2").onclick = function() {
+  document.querySelector(".game-board").classList.remove("dontDisplay");
+  document.querySelector(".canvas").classList.remove("dontDisplay");
+  document.querySelector(".barreDeSante").classList.remove("dontDisplay");
+  document.querySelector(".win").classList.add("dontDisplay");
+  
   startGame();
   
 };

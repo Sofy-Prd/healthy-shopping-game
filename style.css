@@ -27,8 +27,10 @@ header {
   padding:auto;
   height: 100vh;
   text-align: center;
-  background: rgb(116,204,82);
-  background: linear-gradient(180deg, rgba(116,204,82,1) 0%, rgba(160,212,67,1) 36%, rgba(184,220,52,1) 100%);
+  background: rgb(242,178,100);
+  /* background: rgb(116,204,82); */
+  background: linear-gradient(0deg, rgba(242,178,100,1) 0%, rgba(220,240,76,1) 45%, rgba(3,101,28,1) 100%); */
+  /* background: linear-gradient(180deg, rgba(116,204,82,1) 0%, rgba(160,212,67,1) 36%, rgba(184,220,52,1) 100%); */
   }
 
 header h1 {
@@ -38,41 +40,34 @@ header h1 {
   color:white;
 }
 
+#healthyVege {
+  width:20vw;
+}
+
 header h2 {
-  font-size:3em;
-  margin :0.25em;
+  font-size:2.5em;
+  margin :0em;
   color:white;
 }
 
 header p {
-  font-size: 1.7em;
+  font-size: 1.5em;
   font-weight:bold;
-  margin-top:0.5em;
+  margin-top:0em;
   margin-bottom: 0.5em;
+  padding-left: 6em;
+  padding-right:6em;
 }
 
-header img {
-  width: 15vw;
-}
+header .anim {
+display:flex;
+align-items: flex-end;
+justify-content: space-between;
 
 
-button {
-  background:green;
-  margin-top:1em;
-  padding:1em;
-  box-shadow:none;
-  border:0 none;
-  color:white;
-  font-size:1.5em;
-  font-weight: bold;
-  border-radius : 0.25em;
-  font-weight: bold;
-  font-family: 'Indie Flower', cursive;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 
 }
+
 
 @keyframes myslidein {
   0% {
@@ -90,6 +85,38 @@ button {
   display:block;
   animation: myslidein 5s;
 }
+
+header #supermarket {
+  width:50vh;
+  margin-left:auto;
+}
+
+
+button {
+  background:rgba(3,101,28,1);
+  margin-top:1em;
+  margin-left: auto;
+  margin-right: auto;
+  padding:1em;
+  box-shadow:none;
+  border:0 none;
+  color:white;
+  font-size:1.5em;
+  font-weight: bold;
+  border-radius : 0.25em;
+  font-weight: bold;
+  font-family: 'Indie Flower', cursive;
+  display: block;
+  width: 9em;
+
+}
+
+
+
+#childTrolley {
+  margin:0.5em;
+  animation: myslidein 5s;
+}
   
 /* ######      ###    ##     ## ########    ########   #######     ###    ########  ########  
   ##    ##    ## ##   ###   ### ##          ##     ## ##     ##   ## ##   ##     ## ##     ## 
@@ -102,8 +129,8 @@ button {
 .game-board {
   height: 100vh;
   
-  background: rgb(116,204,82);
-  background: linear-gradient(180deg, rgba(116,204,82,1) 0%, rgba(160,212,67,1) 36%, rgba(184,220,52,1) 100%);
+  background: rgb(242,178,100);
+  background: linear-gradient(0deg, rgba(242,178,100,1) 0%, rgba(220,240,76,1) 45%, rgba(3,101,28,1) 100%);
 }
 
 .flexi {
@@ -144,7 +171,8 @@ progress {
     background-color:#f1ee14;
   }
   progress::-webkit-progress-value {
-   background-color: linear-gradient(rgba(234,242,100,1) 0%, rgba(8,187,55,1));
+   background-color: #f27323;
+   /* linear-gradient(rgba(234,242,100,1) 0%, rgba(8,187,55,1)); */
   }
 
 
@@ -160,7 +188,7 @@ progress {
 }
 
 .gif p {
-  font-size: 1.5em;
+  font-size: 1.2em;
   margin-left:1em;
   margin-right: 1em;
 }
@@ -176,8 +204,8 @@ progress {
 .gameOver {
 margin : auto;
 
-background: rgb(116,204,82);
-background: linear-gradient(180deg, rgba(116,204,82,1) 0%, rgba(160,212,67,1) 36%, rgba(184,220,52,1) 100%);
+background: rgb(242,178,100);
+  background: linear-gradient(0deg, rgba(242,178,100,1) 0%, rgba(220,240,76,1) 45%, rgba(3,101,28,1) 100%);
 height: 100vh;
 width: 100vw;
 }
@@ -230,35 +258,99 @@ width: 100vw;
   animation: myslidein2 5s;
 }
 
-/* .gameOver button  {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-} */
 
 .gameOver, .win {
   margin : auto;
-  
-  background: rgb(116,204,82);
-  background: linear-gradient(180deg, rgba(116,204,82,1) 0%, rgba(160,212,67,1) 36%, rgba(184,220,52,1) 100%);
+  background: rgb(242,178,100);
+  background: linear-gradient(0deg, rgba(242,178,100,1) 0%, rgba(220,240,76,1) 45%, rgba(3,101,28,1) 100%);
   height: 100vh;
   width: 100vw;
   }
   
   
-
+.title {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
   .win h1 {
     margin-top:0;
     text-align: center;
-    font-size: 6em;
+    font-size: 4.7em;
     font-weight:bolder;
-    color:green;
+    color:white;
+    margin-top: auto;
+    margin-bottom:auto;
     animation:clignote 1s infinite;
   }
   
+  .strongBroco {
+    width:20vh;
+  }
   .win p {
     text-align: center;
     font-size: 2em;
     font-weight:bold;
     } 
 
+ 
+ 
+@keyframes bounce1 {
+        from {margin-bottom:0;
+              margin-top:50px;}
+        50%  {margin-bottom: 50px;
+              margin-top:0px;}
+        to   {margin-bottom: O;
+              margin-top:50px;}
+  }
+
+@keyframes bounce2 {
+  from {margin-bottom:0;
+        margin-top:30px;}
+  50%  {margin-bottom: 30px;
+        margin-top:0px;}
+  to   {margin-bottom: O;
+        margin-top:30px;}
+}
+
+@keyframes bounce3 {
+  from {margin-top:0;}
+  50%  {margin-top: 5px;}
+  to   {margin-top: O;}
+}
+
+@keyframes bounce4 {
+  from {margin-top:0;}
+  50%  {margin-top: 20px;}
+  to   {margin-top: O;}
+}
+
+.happyVegetables {
+  display:flex;
+  justify-content: space-around;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.happyVegetables img {
+  height:10em;
+    }
+  
+#broccoli {
+  animation: bounce1 0.7s ease infinite;
+}
+
+#carrot {
+  animation: bounce2 1s ease infinite;
+}
+
+#navet {
+  animation: bounce1 1.2s ease infinite;
+}
+
+#tomato {
+  animation: bounce2 0.9s ease infinite;
+}
+  
+  

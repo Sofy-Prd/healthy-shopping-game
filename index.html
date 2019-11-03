@@ -13,14 +13,16 @@
  
   <header>
     <h1>Healthy Shopping</h1>
-    <img src="images/vegetables.png" alt="healthy food">
+    <img id="healthyVege" src="images/vegetables.png" alt="healthy food">
     <h2>Objective</h2>
-    <p>Fill your cart with as much healthy food as you can and avoid junk food</p>
-    <p>Use the left and right arrow to control the trolley !</p>
+    <p>Fill your cart with as much healthy food as you can and avoid junk food. To win the game, you must complete all three levels. Use the left and right arrow to control the trolley !</p>
+
     <button id="start-button">Start Game</button>
     <br>
-    <img id="childTrolley" src="images/childsWithTrolley.png" alt="healthy food">
-    
+    <div class="anim">
+      <img id="childTrolley" src="images/childsWithTrolley.png" alt="healthy food">
+      <!-- <img id="supermarket" src="images/supermarket.png" alt="supermarket"> -->
+    </div>
   </header>
 
   <div class="game-board dontDisplay">
@@ -39,17 +41,17 @@
             
         <div class="gif levelOne dontDisplay">
         <img src="images/littlePies.gif" alt="smiling littlePies">
-        <p>"Congratulations! You won the first level !"</p>
+        <p>"Congratulations! You have reached the 1st level !"</p>
         </div>
 
         <div class="gif levelTwo dontDisplay">
           <img src="images/banana.webp" alt="banana">
-          <p>"Congratulations! You won the second level !"</p>
+          <p>"Congratulations! You have reached the 2nd level !"</p>
         </div>
 
         <div class="gif levelThree dontDisplay">
           <img src="images/avocado.gif" alt="dancing avocado">
-          <p>"Congratulations! You won the second level !"</p>
+          <p>"Congratulations! You have reached the 3rd level !"</p>
         </div>
       </div>
     </div>
@@ -58,7 +60,7 @@
   </div>
 
   <div class="gameOver dontDisplay">
-    <h1>Game Over</h1>
+    <h1> Game Over</h1>
     <p>Too bad you ate too much junk food, you're sick and you have to go to the hospital</p>
     <div class="hospital">
       <img id="ambulance" src="images/ambulance-icon.png" alt="hospital">
@@ -69,19 +71,22 @@
   </div>
 
   <div class="win dontDisplay">
+    <div class="title">
+      <img class="strongBroco" src="images/brocolis.webp" alt="strong broccoli">
       <h1>Congratulations you're a winner !</h1>
+      <img class="strongBroco"src="images/brocolis.webp" alt="strong broccoli">
+    </div>
       <p>You made the right choices for your health</p>
       <div class="happyVegetables">
-        <img  src="images/cuteBroccoli.png" alt="cute Broccoli">
-        <img  src="images/cuteCarrot.png" alt="cute carrot">
-        <img  src="images/cuteNavet.png" alt="cute navet">
-        <img  src="images/cuteTomato.png" alt="cute tomato">
+        <img id="broccoli" src="images/cuteBroccoli.png" alt="cute Broccoli">
+        <img id="carrot" src="images/cuteCarrot.png" alt="cute carrot">
+        <img id="navet" src="images/cuteNavet.png" alt="cute navet">
+        <img id="tomato" src="images/cuteTomato.png" alt="cute tomato">
       </div>
       <br>
-      <button id="restart-button">Restart Game</button>
-    </div>
+      <button id="restart-button2">Restart Game</button>
+ </div>
 
-<!-- </div> -->
 
   <script src="trolley.js"></script>
   <script src="food.js"></script>

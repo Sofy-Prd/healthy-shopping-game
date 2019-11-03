@@ -1,5 +1,5 @@
 let junkFood=["images/hamburger.svg","images/donut.svg","images/fries.svg","images/jar.svg","images/sweet.svg","images/bacon.svg","images/pint.svg","images/pizza.svg","images/soda.svg","images/hotdog.svg"];
-let healthyFood=["images/broccoli.svg","images/carrot.svg","images/avocado.svg","images/radish.svg","images/apple.svg","images/honey.svg","images/tomato.svg"];
+let healthyFood=["images/broccoli.svg","images/carrot.svg","images/avocado.svg","images/radish.svg","images/apple.svg","images/honey.svg","images/tomato.svg","images/food.svg","images/chives.svg","images/pumpkin.svg","images/cabbage.svg", "images/banana.svg","images/strawberry.svg","images/grapes.svg","images/orange.svg"];
 let lotFood=["images/lotNutella.png","images/lotSoda.png","images/lotDonut.png"];
 
 function random(from, to) {
