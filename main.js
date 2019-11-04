@@ -7,6 +7,7 @@ let healthy;
 let lot;
 let stopGame;
 let points;
+let beforePoints;
 let level;
 let pointMaxLevel
 let speedJunk;
@@ -14,6 +15,7 @@ let speedHealthy;
 let moduloFrameJunk;
 let moduloFrameHealthy;
 
+//fonction qui affiche la barre de progression et le score
 function barre (){
   document.getElementById("health").value = points;
   document.getElementById("health").max=pointMaxLevel;
@@ -21,12 +23,13 @@ function barre (){
   document.getElementById("points").innerHTML=`${points} sur ${pointMaxLevel}`;
 }
 
-
+// fonction de réinitiation quand on veut rejouer
 function init (){
   junkFoodGame=[];
   healthyFoodGame=[];
   lotFoodGame=[];
   points=0;
+  beforePoints=0;
   level=0;
   pointMaxLevel=3
   speedJunk=5;
@@ -34,10 +37,11 @@ function init (){
   moduloFrameJunk=200;
   moduloFrameHealthy=300;
   stopGame = false;
-  document.querySelector(".canvas").style.background="#f2b264";
+  document.querySelector(".canva").style.background="#f2b264";
   barre()
 }
 
+//initialisation canvas
 const ctx = document.querySelector('canvas').getContext('2d');
 const W = ctx.canvas.width;
 const H = ctx.canvas.height;
@@ -74,7 +78,8 @@ function draw() {
   
   for (healthy of healthyFoodGame) {
     if (healthy.catch(trolley)) {
-      healthyFoodGame.splice(healthyFoodGame.indexOf(healthy),1),
+      healthyFoodGame.splice(healthyFoodGame.indexOf(healthy),1);
+      beforePoints=points;
       points +=1;
       barre();
           
@@ -83,6 +88,7 @@ function draw() {
 
   for (junk of junkFoodGame) {
     if (junk.catch(trolley)) {
+      beforePoints=points;
       points -=2;
       junkFoodGame.splice(junkFoodGame.indexOf(junk),1);
       barre();
@@ -109,34 +115,14 @@ function draw() {
 
   for (lot of lotFoodGame) {
     if (lot.catch(trolley)) {
-      lotFoodGame.splice(lotFoodGame.indexOf(lot),1),
+      lotFoodGame.splice(lotFoodGame.indexOf(lot),1);
+      beforePoints=points;
       points -=6;
       barre();
           
     }
   }
 
-// ######   ######   #######  ########  ######## 
-// ##    ## ##    ## ##     ## ##     ## ##       
-// ##       ##       ##     ## ##     ## ##       
-//  ######  ##       ##     ## ########  ######   
-//       ## ##       ##     ## ##   ##   ##       
-// ##    ## ##    ## ##     ## ##    ##  ##       
-//  ######   ######   #######  ##     ## ######## 
-
-  // var xScore =150;
-  // var yScore=50;
-  // var scoreText=`SCORE = ${points}`;
-  // ctx.fillStyle = "red";
-  // ctx.font = '50px serif';
-  // ctx.fillText(scoreText, xScore, yScore, 300);
-
-  // var xLevel =500;
-  // var yLevel=50;
-  // var levelText=`level of good health = ${level}`;
-  // ctx.fillStyle = "green";
-  // ctx.font = '50px serif';
-  // ctx.fillText(levelText, xLevel, yLevel, 300);
 
 // ##       ######## ##     ## ######## ##       
 // ##       ##       ##     ## ##       ##       
@@ -146,47 +132,57 @@ function draw() {
 // ##       ##         ## ##   ##       ##       
 // ######## ########    ###    ######## ######## 
   
-  
-  
+  //level0
+  if (points>=0 && points<3 ) {
+    level=0;
+    barre();
+  }
 
-  if (points===3) {
-
+  //level1
+  if (points===3 && beforePoints<points){
+      document.querySelector(".levelOne").classList.remove("dontDisplay");
+      setTimeout(function(){ document.querySelector(".levelOne").classList.add("dontDisplay");},3000);
+  }
+  if (points>=3 && points<6) {
     level=1;
     pointMaxLevel=6;
     barre();
-    document.querySelector(".levelOne").classList.remove("dontDisplay");
-    setTimeout(function(){ document.querySelector(".levelOne").classList.add("dontDisplay");},3000);
-    document.querySelector(".canvas").style.background="#dcf04c";
+    document.querySelector(".canva").style.background="#dcf04c";
     speedJunk=6;
     speedHealthy=5;
     trolley.speed=65;
     moduloFrameJunk=100;
     moduloFrameHealthy=250;
-  
   }
 
-  if (points===6) {
+  //level2
+  if (points===6 && beforePoints<points){
+    document.querySelector(".levelTwo").classList.remove("dontDisplay");
+    setTimeout(function(){ document.querySelector(".levelTwo").classList.add("dontDisplay");},3000);
+  }
+
+  if (points>=6 && points<10) {
     level=2;
     pointMaxLevel=10;
     barre();
-    document.querySelector(".levelTwo").classList.remove("dontDisplay");
-    setTimeout(function(){ document.querySelector(".levelTwo").classList.add("dontDisplay");},3000);
-    document.querySelector(".canvas").style.background="#aad041";
+    document.querySelector(".canva").style.background="#aad041";
     speedJunk=9;
     speedHealthy=7;
     trolley.speed=80;
     moduloFrameJunk===50;
     moduloFrameHealthy===100;
- 
-  }
+   }
 
-  if (points===10) {
+  //level3
+  if (points===10 && beforePoints<points){
+    document.querySelector(".levelThree").classList.remove("dontDisplay");
+    setTimeout(function(){ document.querySelector(".levelThree").classList.add("dontDisplay");},3000);
+  }
+  if (points>=10 && points<15) {
     level=3;
     pointMaxLevel=15;
     barre();
-    document.querySelector(".levelThree").classList.remove("dontDisplay");
-    setTimeout(function(){ document.querySelector(".levelThree").classList.add("dontDisplay");},3000);
-    document.querySelector(".canvas").style.background="#54992e";
+    document.querySelector(".canva").style.background="#54992e";
     speedJunk=12;
     speedHealthy=9;
     trolley.speed=100;
@@ -195,24 +191,25 @@ function draw() {
  
   }
 
-  
+  //Game Over
   if (points<0) {
    stopGame=true;
    document.querySelector(".gameOver").classList.remove("dontDisplay");
    document.querySelector(".game-board").classList.add("dontDisplay");
    document.querySelector(".barreDeSante").classList.add("dontDisplay");
-   document.querySelector(".canvas").classList.add("dontDisplay");
+   document.querySelector(".canva").classList.add("dontDisplay");
 
 } 
 
-if (points>15) {
-  stopGame=true;
-  document.querySelector(".win").classList.remove("dontDisplay");
-  document.querySelector(".game-board").classList.add("dontDisplay");
-  document.querySelector(".barreDeSante").classList.add("dontDisplay");
-  document.querySelector(".canvas").classList.add("dontDisplay");
+  //Win
+  if (points>15) {
+    stopGame=true;
+    document.querySelector(".win").classList.remove("dontDisplay");
+    document.querySelector(".game-board").classList.add("dontDisplay");
+    document.querySelector(".barreDeSante").classList.add("dontDisplay");
+    document.querySelector(".canva").classList.add("dontDisplay");
 
-} 
+  } 
 
 }
 // #######  ##    ## ##    ## ######## ##    ## 
@@ -257,32 +254,37 @@ function startGame() {
   requestAnimationFrame(animLoop);
 }
 
+// ########  ##     ## ######## ########  #######  ##    ## 
+// ##     ## ##     ##    ##       ##    ##     ## ###   ## 
+// ##     ## ##     ##    ##       ##    ##     ## ####  ## 
+// ########  ##     ##    ##       ##    ##     ## ## ## ## 
+// ##     ## ##     ##    ##       ##    ##     ## ##  #### 
+// ##     ## ##     ##    ##       ##    ##     ## ##   ### 
+// ########   #######     ##       ##     #######  ##    ## 
+
 document.getElementById("start-button").onclick = function() {
   document.querySelector("header").classList.add("dontDisplay");
   document.querySelector(".game-board").classList.remove("dontDisplay");
-  document.querySelector(".canvas").classList.remove("dontDisplay");
+  document.querySelector(".canva").classList.remove("dontDisplay");
   document.querySelector(".barreDeSante").classList.remove("dontDisplay");
   startGame();
 };
 
 document.getElementById("restart-button").onclick = function() {
   document.querySelector(".game-board").classList.remove("dontDisplay");
-  document.querySelector(".canvas").classList.remove("dontDisplay");
+  document.querySelector(".canva").classList.remove("dontDisplay");
   document.querySelector(".barreDeSante").classList.remove("dontDisplay");
   document.querySelector(".gameOver").classList.add("dontDisplay");
-  
   startGame();
   
 };
 
 document.getElementById("restart-button2").onclick = function() {
   document.querySelector(".game-board").classList.remove("dontDisplay");
-  document.querySelector(".canvas").classList.remove("dontDisplay");
+  document.querySelector(".canva").classList.remove("dontDisplay");
   document.querySelector(".barreDeSante").classList.remove("dontDisplay");
   document.querySelector(".win").classList.add("dontDisplay");
-  
   startGame();
   
 };
 
-// startGame();

@@ -7,7 +7,7 @@ class Trolley {
       this.w=120;
       this.h=this.w/imgRatio;
       this.x=W/2-this.w/2;;
-      this.y=H-this.h-100;
+      this.y=H -this.h
       this.speed=50;
      
     }

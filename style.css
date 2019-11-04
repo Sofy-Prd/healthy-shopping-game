@@ -1,8 +1,6 @@
 * :before, after {
   box-sizing:border-box;
-  
   }
- 
   
 img {max-width:100%;}
 
@@ -28,9 +26,7 @@ header {
   height: 100vh;
   text-align: center;
   background: rgb(242,178,100);
-  /* background: rgb(116,204,82); */
   background: linear-gradient(0deg, rgba(242,178,100,1) 0%, rgba(220,240,76,1) 45%, rgba(3,101,28,1) 100%); */
-  /* background: linear-gradient(180deg, rgba(116,204,82,1) 0%, rgba(160,212,67,1) 36%, rgba(184,220,52,1) 100%); */
   }
 
 header h1 {
@@ -63,9 +59,6 @@ header .anim {
 display:flex;
 align-items: flex-end;
 justify-content: space-between;
-
-
-
 }
 
 
@@ -86,11 +79,6 @@ justify-content: space-between;
   animation: myslidein 5s;
 }
 
-header #supermarket {
-  width:50vh;
-  margin-left:auto;
-}
-
 
 button {
   background:rgba(3,101,28,1);
@@ -108,15 +96,11 @@ button {
   font-family: 'Indie Flower', cursive;
   display: block;
   width: 9em;
-
 }
 
 
 
-#childTrolley {
-  margin:0.5em;
-  animation: myslidein 5s;
-}
+
   
 /* ######      ###    ##     ## ########    ########   #######     ###    ########  ########  
   ##    ##    ## ##   ###   ### ##          ##     ## ##     ##   ## ##   ##     ## ##     ## 
@@ -128,11 +112,13 @@ button {
 
 .game-board {
   height: 100vh;
-  
   background: rgb(242,178,100);
   background: linear-gradient(0deg, rgba(242,178,100,1) 0%, rgba(220,240,76,1) 45%, rgba(3,101,28,1) 100%);
 }
 
+.canva canvas {
+height: 90vh;
+}
 .flexi {
   display:flex;
 }
@@ -143,11 +129,14 @@ button {
 .score h3 {
   font-size:2em;
   color:white;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 .score p {
   font-size : 2em;
+  font-weight: bold;
+  color:white;
+  margin:0.25em;
 }
 
 .barreDeSante {
@@ -157,12 +146,13 @@ button {
 
 .barreDeSante h3 {
   font-size: 2em;
+  font-weight: bold;
 }
 
 progress {
-    
     border: 0;
     height: 18px;
+    width: 17em;
     border-radius: 9px;
     background-color:#3df337;
   }
@@ -184,7 +174,7 @@ progress {
   }
   
 .gif img {
-  width:50%;
+  width:40%;
 }
 
 .gif p {
