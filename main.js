@@ -14,6 +14,13 @@ let speedJunk;
 let speedHealthy;
 let moduloFrameJunk;
 let moduloFrameHealthy;
+let AmbulanceAudio = new Audio('audio/ambulance.mp3');
+let HealthyAudio = new Audio('audio/good.mp3');
+let JunkAudio = new Audio('audio/bad.mp3');
+let levelUpAudio= new Audio('audio/LevelUp.mp3');
+let levelDownAudio=new Audio('audio/LevelDown.mp3');
+
+
 
 //fonction qui affiche la barre de progression et le score
 function barre (){
@@ -78,6 +85,7 @@ function draw() {
   
   for (healthy of healthyFoodGame) {
     if (healthy.catch(trolley)) {
+      HealthyAudio.play();
       healthyFoodGame.splice(healthyFoodGame.indexOf(healthy),1);
       beforePoints=points;
       points +=1;
@@ -88,6 +96,7 @@ function draw() {
 
   for (junk of junkFoodGame) {
     if (junk.catch(trolley)) {
+      JunkAudio.play();
       beforePoints=points;
       points -=2;
       junkFoodGame.splice(junkFoodGame.indexOf(junk),1);
@@ -97,10 +106,13 @@ function draw() {
   }
 
   if(level===3){
-    var saleText=`Sales on nutella, donuts and soda lots `;
-    ctx.fillStyle = "red";
-    ctx.font = '60px Indie Flower';
-    ctx.fillText(saleText,250 ,50, 500);
+    let salesImg=new Image();
+    salesImg.src="images/sales.png";
+    ctx.drawImage(salesImg, 250,5,400,100);
+    // var saleText=`Sales on nutella, donuts and soda lots `;
+    // ctx.fillStyle = "red";
+    // ctx.font = '60px Indie Flower';
+    // ctx.fillText(saleText,250 ,50, 500);
   }
 
   if (level===3 && (frames % moduloFrameJunk === 0)) {
@@ -139,10 +151,18 @@ function draw() {
   }
 
   //level1
-  if (points===3 && beforePoints<points){
-      document.querySelector(".levelOne").classList.remove("dontDisplay");
-      setTimeout(function(){ document.querySelector(".levelOne").classList.add("dontDisplay");},3000);
+   if (points===3 && beforePoints<points){
+    levelUpAudio.play();
+    document.querySelector(".levelOne").classList.remove("dontDisplay");
+    document.querySelector(".scoreBottom").classList.add("dontDisplay");
+  
+    setTimeout(function(){ 
+      document.querySelector(".levelOne").classList.add("dontDisplay");
+      document.querySelector(".scoreBottom").classList.remove("dontDisplay"); 
+    },3000); 
+      
   }
+
   if (points>=3 && points<6) {
     level=1;
     pointMaxLevel=6;
@@ -158,8 +178,15 @@ function draw() {
   //level2
   if (points===6 && beforePoints<points){
     document.querySelector(".levelTwo").classList.remove("dontDisplay");
-    setTimeout(function(){ document.querySelector(".levelTwo").classList.add("dontDisplay");},3000);
-  }
+    document.querySelector(".scoreBottom").classList.add("dontDisplay");
+  
+    setTimeout(function(){ 
+      document.querySelector(".levelTwo").classList.add("dontDisplay");
+      document.querySelector(".scoreBottom").classList.remove("dontDisplay"); 
+    },3000); 
+    
+  }    
+  
 
   if (points>=6 && points<10) {
     level=2;
@@ -176,6 +203,7 @@ function draw() {
   //level3
   if (points===10 && beforePoints<points){
     document.querySelector(".levelThree").classList.remove("dontDisplay");
+    document.querySelector(".scoreBottom").classList.add("dontDisplay");
     setTimeout(function(){ document.querySelector(".levelThree").classList.add("dontDisplay");},3000);
   }
   if (points>=10 && points<15) {
@@ -198,6 +226,7 @@ function draw() {
    document.querySelector(".game-board").classList.add("dontDisplay");
    document.querySelector(".barreDeSante").classList.add("dontDisplay");
    document.querySelector(".canva").classList.add("dontDisplay");
+   AmbulanceAudio.play();
 
 } 
 
@@ -267,6 +296,7 @@ document.getElementById("start-button").onclick = function() {
   document.querySelector(".game-board").classList.remove("dontDisplay");
   document.querySelector(".canva").classList.remove("dontDisplay");
   document.querySelector(".barreDeSante").classList.remove("dontDisplay");
+  document.querySelector(".scoreBottom").classList.remove("dontDisplay");
   startGame();
 };
 
@@ -274,7 +304,9 @@ document.getElementById("restart-button").onclick = function() {
   document.querySelector(".game-board").classList.remove("dontDisplay");
   document.querySelector(".canva").classList.remove("dontDisplay");
   document.querySelector(".barreDeSante").classList.remove("dontDisplay");
+  document.querySelector(".scoreBottom").classList.remove("dontDisplay");
   document.querySelector(".gameOver").classList.add("dontDisplay");
+  
   startGame();
   
 };
@@ -283,6 +315,7 @@ document.getElementById("restart-button2").onclick = function() {
   document.querySelector(".game-board").classList.remove("dontDisplay");
   document.querySelector(".canva").classList.remove("dontDisplay");
   document.querySelector(".barreDeSante").classList.remove("dontDisplay");
+  document.querySelector(".scoreBottom").classList.remove("dontDisplay");
   document.querySelector(".win").classList.add("dontDisplay");
   startGame();
   

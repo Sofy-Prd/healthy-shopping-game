@@ -26,7 +26,7 @@ header {
   height: 100vh;
   text-align: center;
   background: rgb(242,178,100);
-  background: linear-gradient(0deg, rgba(242,178,100,1) 0%, rgba(220,240,76,1) 45%, rgba(3,101,28,1) 100%); */
+  background: linear-gradient(0deg, rgba(242,178,100,1) 0%, rgba(220,240,76,1) 45%, rgba(3,101,28,1) 100%);
   }
 
 header h1 {
@@ -124,18 +124,19 @@ height: 90vh;
 }
 
 .score {
+  color:white;
   height: 100vh;
 }
 .score h3 {
   font-size:2em;
-  color:white;
+  /* color:white; */
   font-weight: bolder;
 }
 
 .score p {
   font-size : 2em;
   font-weight: bold;
-  color:white;
+  /* color:white; */
   margin:0.25em;
 }
 
@@ -162,10 +163,28 @@ progress {
   }
   progress::-webkit-progress-value {
    background-color: #f27323;
-   /* linear-gradient(rgba(234,242,100,1) 0%, rgba(8,187,55,1)); */
+   
   }
 
+.scoreBottom {
+  margin-left:12em;
+  margin-top:11em;
+  width: 18vw;
 
+}
+
+.scoreBottom h2 {
+  margin-top:3.5em;
+  margin-left: auto;
+  margin-right: auto;
+  font-size:2em;
+}
+
+.scoreBottom img {
+  width: 15vw;
+  margin-left: auto;
+  margin-right: auto;
+}
 .gif {
   text-align: center;
   padding-top:50px;
