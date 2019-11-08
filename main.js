@@ -14,12 +14,16 @@ let speedJunk;
 let speedHealthy;
 let moduloFrameJunk;
 let moduloFrameHealthy;
+let levelOneaffiche;
+let levelTwoaffiche;
+let levelThreeaffiche;
 let AmbulanceAudio = new Audio('audio/ambulance.mp3');
 let HealthyAudio = new Audio('audio/good.mp3');
 let JunkAudio = new Audio('audio/bad.mp3');
+let lotAudio = new Audio('audio/lotSound.mp3');
 let levelUpAudio= new Audio('audio/LevelUp.mp3');
 let levelDownAudio=new Audio('audio/LevelDown.mp3');
-
+let winAudio=new Audio('audio/bravo.mp3')
 
 
 //fonction qui affiche la barre de progression et le score
@@ -43,6 +47,9 @@ function init (){
   speedHealthy=3;
   moduloFrameJunk=200;
   moduloFrameHealthy=300;
+  levelOneaffiche=false;
+  levelTwoaffiche=false;
+  levelThreeaffiche=false;
   stopGame = false;
   document.querySelector(".canva").style.background="#f2b264";
   barre()
@@ -109,10 +116,7 @@ function draw() {
     let salesImg=new Image();
     salesImg.src="images/sales.png";
     ctx.drawImage(salesImg, 250,5,400,100);
-    // var saleText=`Sales on nutella, donuts and soda lots `;
-    // ctx.fillStyle = "red";
-    // ctx.font = '60px Indie Flower';
-    // ctx.fillText(saleText,250 ,50, 500);
+    
   }
 
   if (level===3 && (frames % moduloFrameJunk === 0)) {
@@ -127,6 +131,7 @@ function draw() {
 
   for (lot of lotFoodGame) {
     if (lot.catch(trolley)) {
+      lotAudio.play();
       lotFoodGame.splice(lotFoodGame.indexOf(lot),1);
       beforePoints=points;
       points -=6;
@@ -151,16 +156,19 @@ function draw() {
   }
 
   //level1
-   if (points===3 && beforePoints<points){
+   if (points===3 && beforePoints<points && levelOneaffiche===false){
+
     levelUpAudio.play();
     document.querySelector(".levelOne").classList.remove("dontDisplay");
-    document.querySelector(".scoreBottom").classList.add("dontDisplay");
+    document.querySelector(".logo").classList.add("dontDisplay");
   
     setTimeout(function(){ 
       document.querySelector(".levelOne").classList.add("dontDisplay");
-      document.querySelector(".scoreBottom").classList.remove("dontDisplay"); 
+      document.querySelector(".logo").classList.remove("dontDisplay"); 
     },3000); 
-      
+
+    levelOneaffiche=true;
+ 
   }
 
   if (points>=3 && points<6) {
@@ -173,17 +181,21 @@ function draw() {
     trolley.speed=65;
     moduloFrameJunk=100;
     moduloFrameHealthy=250;
+  
   }
 
   //level2
-  if (points===6 && beforePoints<points){
+  if (points===6 && beforePoints<points && levelTwoaffiche===false){
     document.querySelector(".levelTwo").classList.remove("dontDisplay");
-    document.querySelector(".scoreBottom").classList.add("dontDisplay");
+    document.querySelector(".logo").classList.add("dontDisplay");
   
     setTimeout(function(){ 
       document.querySelector(".levelTwo").classList.add("dontDisplay");
-      document.querySelector(".scoreBottom").classList.remove("dontDisplay"); 
+      document.querySelector(".logo").classList.remove("dontDisplay"); 
     },3000); 
+    levelUpAudio.play();
+    levelOneaffiche=false;
+    levelTwoaffiche=true;
     
   }    
   
@@ -198,13 +210,21 @@ function draw() {
     trolley.speed=80;
     moduloFrameJunk===50;
     moduloFrameHealthy===100;
+    
    }
 
   //level3
-  if (points===10 && beforePoints<points){
+  if (points===10 && beforePoints<points && levelThreeaffiche===false){
     document.querySelector(".levelThree").classList.remove("dontDisplay");
-    document.querySelector(".scoreBottom").classList.add("dontDisplay");
-    setTimeout(function(){ document.querySelector(".levelThree").classList.add("dontDisplay");},3000);
+    document.querySelector(".logo").classList.add("dontDisplay");
+
+    setTimeout(function(){ 
+      document.querySelector(".levelThree").classList.add("dontDisplay");
+      document.querySelector(".logo").classList.remove("dontDisplay"); 
+    },3000); 
+    levelUpAudio.play();
+    levelTwoaffiche=false;
+    levelThreeaffiche=true;
   }
   if (points>=10 && points<15) {
     level=3;
@@ -216,12 +236,19 @@ function draw() {
     trolley.speed=100;
     moduloFrameJunk===50;
     moduloFrameHealthy===50;
+    
  
   }
 
   //Game Over
   if (points<0) {
    stopGame=true;
+   levelThreeaffiche=false;
+   var player = document.querySelector('#' + 'audioPlayer');
+   if (player.play) {
+    player.pause();
+    this.textContent = 'Pause';}
+
    document.querySelector(".gameOver").classList.remove("dontDisplay");
    document.querySelector(".game-board").classList.add("dontDisplay");
    document.querySelector(".barreDeSante").classList.add("dontDisplay");
@@ -233,10 +260,13 @@ function draw() {
   //Win
   if (points>15) {
     stopGame=true;
+    levelThreeaffiche=false;
     document.querySelector(".win").classList.remove("dontDisplay");
     document.querySelector(".game-board").classList.add("dontDisplay");
     document.querySelector(".barreDeSante").classList.add("dontDisplay");
     document.querySelector(".canva").classList.add("dontDisplay");
+    winAudio.play();
+
 
   } 
 
@@ -276,9 +306,9 @@ function animLoop() {
 
 function startGame() {
   init()
+  play('audioPlayer', this)
   trolley = new Trolley();
   points=0;
-  
   draw();
   requestAnimationFrame(animLoop);
 }
@@ -297,6 +327,7 @@ document.getElementById("start-button").onclick = function() {
   document.querySelector(".canva").classList.remove("dontDisplay");
   document.querySelector(".barreDeSante").classList.remove("dontDisplay");
   document.querySelector(".scoreBottom").classList.remove("dontDisplay");
+  document.querySelector(".logo").classList.remove("dontDisplay");
   startGame();
 };
 
@@ -306,6 +337,7 @@ document.getElementById("restart-button").onclick = function() {
   document.querySelector(".barreDeSante").classList.remove("dontDisplay");
   document.querySelector(".scoreBottom").classList.remove("dontDisplay");
   document.querySelector(".gameOver").classList.add("dontDisplay");
+  document.querySelector(".logo").classList.remove("dontDisplay");
   
   startGame();
   
@@ -316,8 +348,27 @@ document.getElementById("restart-button2").onclick = function() {
   document.querySelector(".canva").classList.remove("dontDisplay");
   document.querySelector(".barreDeSante").classList.remove("dontDisplay");
   document.querySelector(".scoreBottom").classList.remove("dontDisplay");
+  document.querySelector(".logo").classList.remove("dontDisplay");
   document.querySelector(".win").classList.add("dontDisplay");
   startGame();
   
 };
+
+//Audio
+function play(idPlayer, control) {
+  var player = document.querySelector('#' + idPlayer);
+  var img = document. getElementById("btplaypause")
+  if (player.paused) {
+      player.play();
+      control.textContent = 'Pause';
+      img.src = "images/soundOn.png";
+  } else {
+      player.pause();	
+      control.textContent = 'Play';
+      img.src = "images/soundOff.png";
+  }
+}
+
+
+
 

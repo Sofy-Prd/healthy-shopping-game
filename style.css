@@ -167,24 +167,35 @@ progress {
   }
 
 .scoreBottom {
-  margin-left:12em;
-  margin-top:11em;
-  width: 18vw;
+  margin-top:4em;
+  width: 60vh;
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-end;
 
 }
 
-.scoreBottom h2 {
-  margin-top:3.5em;
-  margin-left: auto;
-  margin-right: auto;
-  font-size:2em;
+.logo {
+  text-align: center;
+
+}
+.logo h2 {
+   margin-top:3.5em;
+   font-size:2em;
 }
 
-.scoreBottom img {
+.logo img {
   width: 15vw;
-  margin-left: auto;
-  margin-right: auto;
+  
 }
+
+#btplaypause {
+  width: 5vh;
+  margin-left: 2em;
+}
+
+
+
 .gif {
   text-align: center;
   padding-top:50px;

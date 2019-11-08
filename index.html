@@ -19,6 +19,10 @@
     <button id="start-button">Start Game</button>
     <br>
       <img id="childTrolley" src="images/childsWithTrolley2.png" alt="healthy food">
+
+      <!-- <button class="control" onclick="play('audioPlayer', this)">Play</button> -->
+     
+
   </header>
 
   <div class="game-board dontDisplay">
@@ -35,10 +39,18 @@
           <progress id="health" value="" max=""></progress> <p id="points"></p>
         </div>
         <div class="scoreBottom dontDisplay">
-          <h2>Healthy Shopping</h2>
-          <br>
-          <img src="images/vegetables.png" alt="healthy food">
+          <div class="soundOffOn">
+            <img id="btplaypause" src="images/soundOff.png" onclick="play('audioPlayer', this)">
+            <audio id="audioPlayer" src="audio/music.mp3" loop></audio>
+          </div>
+          <div class="logo dontDisplay">
+            <h2>Healthy Shopping</h2>
+            <br>
+            <img src="images/vegetables.png" alt="healthy food">
+          </div> 
+           
         </div>
+        
         <div class="gif levelOne dontDisplay">
         <img src="images/littlePies.gif" alt="smiling littlePies">
         <p>"Congratulations! You have reached the 1st level !"</p>
