@@ -152,6 +152,7 @@ function draw() {
   //level0
   if (points>=0 && points<3 ) {
     level=0;
+    levelOneaffiche=false;
     barre();
   }
 
@@ -178,10 +179,9 @@ function draw() {
     document.querySelector(".canva").style.background="#dcf04c";
     speedJunk=6;
     speedHealthy=5;
-    trolley.speed=65;
     moduloFrameJunk=100;
     moduloFrameHealthy=250;
-  
+    levelTwoaffiche=false;
   }
 
   //level2
@@ -207,9 +207,9 @@ function draw() {
     document.querySelector(".canva").style.background="#aad041";
     speedJunk=9;
     speedHealthy=7;
-    trolley.speed=80;
     moduloFrameJunk===50;
     moduloFrameHealthy===100;
+    levelThreeaffiche=false;
     
    }
 
@@ -233,7 +233,6 @@ function draw() {
     document.querySelector(".canva").style.background="#54992e";
     speedJunk=12;
     speedHealthy=9;
-    trolley.speed=100;
     moduloFrameJunk===50;
     moduloFrameHealthy===50;
     
@@ -247,8 +246,8 @@ function draw() {
    var player = document.querySelector('#' + 'audioPlayer');
    if (player.play) {
     player.pause();
-    this.textContent = 'Pause';}
-
+    this.textContent = 'Pause';
+  }
    document.querySelector(".gameOver").classList.remove("dontDisplay");
    document.querySelector(".game-board").classList.add("dontDisplay");
    document.querySelector(".barreDeSante").classList.add("dontDisplay");
@@ -261,6 +260,11 @@ function draw() {
   if (points>15) {
     stopGame=true;
     levelThreeaffiche=false;
+    var player = document.querySelector('#' + 'audioPlayer');
+   if (player.play) {
+    player.pause();
+    this.textContent = 'Pause';
+  }
     document.querySelector(".win").classList.remove("dontDisplay");
     document.querySelector(".game-board").classList.add("dontDisplay");
     document.querySelector(".barreDeSante").classList.add("dontDisplay");

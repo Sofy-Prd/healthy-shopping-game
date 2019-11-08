@@ -8,7 +8,7 @@ class Trolley {
       this.h=this.w/imgRatio;
       this.x=W/2-this.w/2;;
       this.y=H -this.h
-      this.speed=50;
+      this.speed=75;
      
     }
     img.src = "images/childsWithTrolley.png";
@@ -21,13 +21,13 @@ class Trolley {
      
 
   moveLeft() {
-    if (this.x>0) {
+    if (this.x>40) {
       this.x-= this.speed;
       }
     }
   
   moveRight() {
-    if (this.x<W-this.w){
+    if (this.x<W-this.w-40){
    
       this.x+= this.speed;
     }
