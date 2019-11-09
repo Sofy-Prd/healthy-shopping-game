@@ -7,7 +7,6 @@ let healthy;
 let lot;
 let stopGame;
 let points;
-let beforePoints;
 let level;
 let pointMaxLevel
 let speedJunk;
@@ -38,8 +37,8 @@ function init (){
   junkFoodGame=[];
   healthyFoodGame=[];
   lotFoodGame=[];
+  level=0;
   points=0;
-  beforePoints=0;
   level=0;
   pointMaxLevel=3
   speedJunk=5;
@@ -61,7 +60,7 @@ const H = ctx.canvas.height;
 
 
 
-
+//on dessine les éléments
 function draw() {
   ctx.clearRect(0,0,W,H);
   trolley.draw();
@@ -93,7 +92,6 @@ function draw() {
     if (healthy.catch(trolley)) {
       HealthyAudio.play();
       healthyFoodGame.splice(healthyFoodGame.indexOf(healthy),1);
-      beforePoints=points;
       points +=1;
       barre();
           
@@ -103,7 +101,6 @@ function draw() {
   for (junk of junkFoodGame) {
     if (junk.catch(trolley)) {
       JunkAudio.play();
-      beforePoints=points;
       points -=2;
       junkFoodGame.splice(junkFoodGame.indexOf(junk),1);
       barre();
@@ -111,12 +108,12 @@ function draw() {
     }
   }
 
-  if(level===3){
-    let salesImg=new Image();
-    salesImg.src="images/sales.png";
-    ctx.drawImage(salesImg, 250,5,400,100);
+  // if(level===3){
+  //   let salesImg=new Image();
+  //   salesImg.src="images/sales.png";
+  //   ctx.drawImage(salesImg, 250,5,400,100);
     
-  }
+  // }
 
   if (level===3 && (frames % moduloFrameJunk === 0)) {
     lot = new Food(lotFood,150);
@@ -132,8 +129,7 @@ function draw() {
     if (lot.catch(trolley)) {
       lotAudio.play();
       lotFoodGame.splice(lotFoodGame.indexOf(lot),1);
-      beforePoints=points;
-      points -=6;
+      points -=3;
       barre();
           
     }
@@ -148,15 +144,10 @@ function draw() {
 // ##       ##         ## ##   ##       ##       
 // ######## ########    ###    ######## ######## 
   
-  //level0
-  if (points>=0 && points<3 ) {
-    level=0;
-    levelOneaffiche=false;
-    barre();
-  }
+  
 
   //level1
-   if (points===3 && beforePoints<points && levelOneaffiche===false){
+   if (level===0 && points===3 && levelOneaffiche===false){
 
     levelUpAudio.play();
     document.querySelector(".levelOne").classList.remove("dontDisplay");
@@ -168,23 +159,29 @@ function draw() {
     },3000); 
 
     levelOneaffiche=true;
- 
+    level=1;
+    points=0;
+    
+   
+    
+    
   }
 
-  if (points>=3 && points<6) {
-    level=1;
-    pointMaxLevel=6;
+
+
+  if (level===1) {
+    
+    pointMaxLevel=4;
     barre();
     document.querySelector(".canva").style.background="#dcf04c";
     speedJunk=6;
     speedHealthy=5;
     moduloFrameJunk=100;
     moduloFrameHealthy=250;
-    levelTwoaffiche=false;
-  }
+    }
 
   //level2
-  if (points===6 && beforePoints<points && levelTwoaffiche===false){
+  if (level===1 && points===4 && levelTwoaffiche===false){
     document.querySelector(".levelTwo").classList.remove("dontDisplay");
     document.querySelector(".logo").classList.add("dontDisplay");
   
@@ -193,27 +190,25 @@ function draw() {
       document.querySelector(".logo").classList.remove("dontDisplay"); 
     },3000); 
     levelUpAudio.play();
-    levelOneaffiche=false;
     levelTwoaffiche=true;
-    
+    level=2;
+    points=0;
   }    
   
 
-  if (points>=6 && points<10) {
-    level=2;
-    pointMaxLevel=10;
+  if (level===2) {
+    pointMaxLevel=5;
     barre();
     document.querySelector(".canva").style.background="#aad041";
     speedJunk=9;
     speedHealthy=7;
     moduloFrameJunk===50;
     moduloFrameHealthy===100;
-    levelThreeaffiche=false;
-    
+     
    }
 
   //level3
-  if (points===10 && beforePoints<points && levelThreeaffiche===false){
+  if (level===2 && points===5 && levelThreeaffiche===false){
     document.querySelector(".levelThree").classList.remove("dontDisplay");
     document.querySelector(".logo").classList.add("dontDisplay");
 
@@ -222,20 +217,27 @@ function draw() {
       document.querySelector(".logo").classList.remove("dontDisplay"); 
     },3000); 
     levelUpAudio.play();
-    levelTwoaffiche=false;
     levelThreeaffiche=true;
-  }
-  if (points>=10 && points<15) {
     level=3;
-    pointMaxLevel=15;
+    points=0;
+
+  }
+  if (level===3) {
+    
+    pointMaxLevel=6;
     barre();
     document.querySelector(".canva").style.background="#54992e";
     speedJunk=12;
     speedHealthy=9;
     moduloFrameJunk===50;
     moduloFrameHealthy===50;
-    
- 
+   
+  }
+
+  if(level===3){
+    let salesImg=new Image();
+    salesImg.src="images/sales.png";
+    ctx.drawImage(salesImg, 250,5,400,100);
   }
 
   //Game Over
@@ -256,7 +258,7 @@ function draw() {
 } 
 
   //Win
-  if (points>15) {
+  if (level===3 && points>=6) {
     stopGame=true;
     levelThreeaffiche=false;
     var player = document.querySelector('#' + 'audioPlayer');
@@ -291,7 +293,6 @@ document.onkeydown = function (e) {
   
   if (e.keyCode===39) {
     trolley.moveRight();
-  
   }
 }
 
@@ -341,7 +342,6 @@ document.getElementById("restart-button").onclick = function() {
   document.querySelector(".scoreBottom").classList.remove("dontDisplay");
   document.querySelector(".gameOver").classList.add("dontDisplay");
   document.querySelector(".logo").classList.remove("dontDisplay");
-  
   startGame();
   
 };
