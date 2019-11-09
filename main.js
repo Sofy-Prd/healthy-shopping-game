@@ -21,7 +21,7 @@ let AmbulanceAudio = new Audio('audio/ambulance.mp3');
 let HealthyAudio = new Audio('audio/good.mp3');
 let JunkAudio = new Audio('audio/bad.mp3');
 let lotAudio = new Audio('audio/lotSound.mp3');
-let levelUpAudio= new Audio('audio/LevelUp.mp3');
+let levelUpAudio= new Audio('audio/levelUp.mp3');
 let winAudio=new Audio('audio/bravo.mp3')
 
 
