@@ -16,23 +16,17 @@ class Food {
       this.h=this.w/imgRatio;
       this.x=random(0,W-this.w);
       this.y=0;
-     
     }
     img.src = tablo[Math.floor(Math.random()*tablo.length)];
-
   }
 
   draw() {
-    
-      if (!this.img) return; // if `this.img` is not loaded yet => don't draw
-      ctx.drawImage(this.img, this.x,this.y,this.w,this.h);
-   
+    if (!this.img) return; // if `this.img` is not loaded yet => don't draw
+    ctx.drawImage(this.img, this.x,this.y,this.w,this.h);
   }
 
   catch(trolley) {
-    if ((trolley.x+trolley.w >= this.x && trolley.x <= this.x+this.w)
-    &&
-    (trolley.y <= this.y+this.h && trolley.y+trolley.h >= this.y))
+    if ((trolley.x+trolley.w >= this.x && trolley.x <= this.x+this.w) && (trolley.y <= this.y+this.h && trolley.y+trolley.h >= this.y))
     return true;
   }
 }

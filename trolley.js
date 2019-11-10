@@ -9,7 +9,6 @@ class Trolley {
       this.x=W/2-this.w/2;;
       this.y=H -this.h
       this.speed=75;
-     
     }
     img.src = "images/childsWithTrolley.png";
   }
@@ -28,9 +27,7 @@ class Trolley {
   
   moveRight() {
     if (this.x<W-this.w-40){
-   
       this.x+= this.speed;
     }
    }
-   
   }

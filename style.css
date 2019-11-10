@@ -11,7 +11,25 @@ body {
 
 .dontDisplay {
   display:none;
- }
+}
+
+button {
+  background:rgba(3,101,28,1);
+  margin-top:1em;
+  margin-left: auto;
+  margin-right: auto;
+  padding:1em;
+  box-shadow:none;
+  border:0 none;
+  color:white;
+  font-size:1.5em;
+  font-weight: bold;
+  border-radius : 0.25em;
+  font-weight: bold;
+  font-family: 'Indie Flower', cursive;
+  display: block;
+  width: 9em;
+}
 
  /* ##     ## ########    ###    ########  ######## ########  
     ##     ## ##         ## ##   ##     ## ##       ##     ## 
@@ -27,7 +45,7 @@ header {
   text-align: center;
   background: rgb(242,178,100);
   background: linear-gradient(0deg, rgba(242,178,100,1) 0%, rgba(220,240,76,1) 45%, rgba(3,101,28,1) 100%);
-  }
+}
 
 header h1 {
   font-size: 4em;
@@ -61,7 +79,7 @@ align-items: flex-end;
 justify-content: space-between;
 }
 
-
+/* animation du charriot */
 @keyframes myslidein {
   0% {
     margin-left: 0%;
@@ -79,29 +97,6 @@ justify-content: space-between;
   animation: myslidein 5s;
 }
 
-
-button {
-  background:rgba(3,101,28,1);
-  margin-top:1em;
-  margin-left: auto;
-  margin-right: auto;
-  padding:1em;
-  box-shadow:none;
-  border:0 none;
-  color:white;
-  font-size:1.5em;
-  font-weight: bold;
-  border-radius : 0.25em;
-  font-weight: bold;
-  font-family: 'Indie Flower', cursive;
-  display: block;
-  width: 9em;
-}
-
-
-
-
-  
 /* ######      ###    ##     ## ########    ########   #######     ###    ########  ########  
   ##    ##    ## ##   ###   ### ##          ##     ## ##     ##   ## ##   ##     ## ##     ## 
   ##         ##   ##  #### #### ##          ##     ## ##     ##  ##   ##  ##     ## ##     ## 
@@ -158,13 +153,13 @@ progress {
     background-color:#3df337;
   }
 
-  progress::-webkit-progress-bar {
-    background-color:#f1ee14;
-  }
-  progress::-webkit-progress-value {
-   background-color: #f27323;
-   
-  }
+progress::-webkit-progress-bar {
+  background-color:#f1ee14;
+}
+progress::-webkit-progress-value {
+  background-color: #f27323;
+  
+}
 
 .scoreBottom {
   margin-top:4em;
@@ -172,13 +167,12 @@ progress {
   display:flex;
   justify-content: space-between;
   align-items: flex-end;
-
 }
 
 .logo {
   text-align: center;
-
 }
+
 .logo h2 {
    margin-top:3.5em;
    font-size:2em;
@@ -186,15 +180,13 @@ progress {
 
 .logo img {
   width: 15vw;
-  
 }
 
+/* bouton pour arreter ou lancer la musique */
 #btplaypause {
   width: 5vh;
   margin-left: 2em;
 }
-
-
 
 .gif {
   text-align: center;
@@ -226,7 +218,7 @@ progress {
 margin : auto;
 
 background: rgb(242,178,100);
-  background: linear-gradient(0deg, rgba(242,178,100,1) 0%, rgba(220,240,76,1) 45%, rgba(3,101,28,1) 100%);
+background: linear-gradient(0deg, rgba(242,178,100,1) 0%, rgba(220,240,76,1) 45%, rgba(3,101,28,1) 100%);
 height: 100vh;
 width: 100vw;
 }
@@ -251,18 +243,19 @@ width: 100vw;
   text-align: center;
   font-size: 2em;
   font-weight:bold;
-  } 
+} 
 
 .hospital {
   display:flex;
   align-items: baseline;
 }
+
 #doctor {
- 
   width : 250px;
   margin-left:auto;
- 
 }
+
+/* animation ambulance */
 @keyframes myslidein2 {
   0% {
     margin-left: 0%;
@@ -274,11 +267,10 @@ width: 100vw;
 }
 
 #ambulance {
- margin-left: 72%;
+  margin-left: 72%;
   width: 100px;
   animation: myslidein2 5s;
 }
-
 
 .gameOver, .win {
   margin : auto;
@@ -286,35 +278,43 @@ width: 100vw;
   background: linear-gradient(0deg, rgba(242,178,100,1) 0%, rgba(220,240,76,1) 45%, rgba(3,101,28,1) 100%);
   height: 100vh;
   width: 100vw;
-  }
-  
-  
+}
+/* ##      ## #### ##    ## 
+   ##  ##  ##  ##  ###   ## 
+   ##  ##  ##  ##  ####  ## 
+   ##  ##  ##  ##  ## ## ## 
+   ##  ##  ##  ##  ##  #### 
+   ##  ##  ##  ##  ##   ### 
+    ###  ###  #### ##    ##    */
+    
 .title {
   display:flex;
   justify-content: space-around;
   align-items: center;
 }
-  .win h1 {
-    margin-top:0;
-    text-align: center;
-    font-size: 4.7em;
-    font-weight:bolder;
-    color:white;
-    margin-top: auto;
-    margin-bottom:auto;
-    animation:clignote 1s infinite;
-  }
-  
-  .strongBroco {
-    width:20vh;
-  }
-  .win p {
-    text-align: center;
-    font-size: 2em;
-    font-weight:bold;
-    } 
 
- 
+.win h1 {
+  margin-top:0;
+  text-align: center;
+  font-size: 4.7em;
+  font-weight:bolder;
+  color:white;
+  margin-top: auto;
+  margin-bottom:auto;
+  animation:clignote 1s infinite;
+}
+  
+.strongBroco {
+  width:20vh;
+}
+
+.win p {
+  text-align: center;
+  font-size: 2em;
+  font-weight:bold;
+} 
+
+ /*animation saut des légumes  */
  
 @keyframes bounce1 {
         from {margin-bottom:0;
@@ -334,17 +334,6 @@ width: 100vw;
         margin-top:30px;}
 }
 
-@keyframes bounce3 {
-  from {margin-top:0;}
-  50%  {margin-top: 5px;}
-  to   {margin-top: O;}
-}
-
-@keyframes bounce4 {
-  from {margin-top:0;}
-  50%  {margin-top: 20px;}
-  to   {margin-top: O;}
-}
 
 .happyVegetables {
   display:flex;
@@ -352,11 +341,11 @@ width: 100vw;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
-  
 }
+
 .happyVegetables img {
   height:10em;
-    }
+}
   
 #broccoli {
   animation: bounce1 0.7s ease infinite;

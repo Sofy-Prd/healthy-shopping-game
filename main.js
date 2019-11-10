@@ -8,7 +8,7 @@ let lot;
 let stopGame;
 let points;
 let level;
-let pointMaxLevel
+let pointMaxLevel;
 let speedJunk;
 let speedHealthy;
 let moduloFrameJunk;
@@ -108,13 +108,6 @@ function draw() {
     }
   }
 
-  // if(level===3){
-  //   let salesImg=new Image();
-  //   salesImg.src="images/sales.png";
-  //   ctx.drawImage(salesImg, 250,5,400,100);
-    
-  // }
-
   if (level===3 && (frames % moduloFrameJunk === 0)) {
     lot = new Food(lotFood,150);
     lotFoodGame.push(lot);
@@ -147,7 +140,7 @@ function draw() {
   
 
   //level1
-   if (level===0 && points===3 && levelOneaffiche===false){
+  if (level===0 && points===3 && levelOneaffiche===false){
 
     levelUpAudio.play();
     document.querySelector(".levelOne").classList.remove("dontDisplay");
@@ -161,16 +154,10 @@ function draw() {
     levelOneaffiche=true;
     level=1;
     points=0;
-    
-   
-    
-    
+      
   }
 
-
-
   if (level===1) {
-    
     pointMaxLevel=4;
     barre();
     document.querySelector(".canva").style.background="#dcf04c";
@@ -178,7 +165,7 @@ function draw() {
     speedHealthy=5;
     moduloFrameJunk=100;
     moduloFrameHealthy=250;
-    }
+  }
 
   //level2
   if (level===1 && points===4 && levelTwoaffiche===false){
@@ -204,8 +191,7 @@ function draw() {
     speedHealthy=7;
     moduloFrameJunk===50;
     moduloFrameHealthy===100;
-     
-   }
+  }
 
   //level3
   if (level===2 && points===5 && levelThreeaffiche===false){
@@ -222,8 +208,8 @@ function draw() {
     points=0;
 
   }
+
   if (level===3) {
-    
     pointMaxLevel=6;
     barre();
     document.querySelector(".canva").style.background="#54992e";
@@ -231,9 +217,9 @@ function draw() {
     speedHealthy=9;
     moduloFrameJunk===50;
     moduloFrameHealthy===50;
-   
   }
 
+  // affichage de l'image des soldes
   if(level===3){
     let salesImg=new Image();
     salesImg.src="images/sales.png";
@@ -248,24 +234,23 @@ function draw() {
    if (player.play) {
     player.pause();
     this.textContent = 'Pause';
-  }
+    }
    document.querySelector(".gameOver").classList.remove("dontDisplay");
    document.querySelector(".game-board").classList.add("dontDisplay");
    document.querySelector(".barreDeSante").classList.add("dontDisplay");
    document.querySelector(".canva").classList.add("dontDisplay");
    AmbulanceAudio.play();
-
-} 
+  } 
 
   //Win
   if (level===3 && points>=6) {
     stopGame=true;
     levelThreeaffiche=false;
     var player = document.querySelector('#' + 'audioPlayer');
-   if (player.play) {
-    player.pause();
-    this.textContent = 'Pause';
-  }
+    if (player.play) {
+      player.pause();
+      this.textContent = 'Pause';
+    }
     document.querySelector(".win").classList.remove("dontDisplay");
     document.querySelector(".game-board").classList.add("dontDisplay");
     document.querySelector(".barreDeSante").classList.add("dontDisplay");
@@ -296,7 +281,7 @@ document.onkeydown = function (e) {
   }
 }
 
-
+// animation loop
 
 let frames = 0;
 function animLoop() {
@@ -307,6 +292,7 @@ function animLoop() {
     requestAnimationFrame(animLoop);
   }
 }
+
 
 function startGame() {
   init()
