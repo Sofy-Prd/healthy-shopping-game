@@ -63,18 +63,30 @@ methode catch() return true qd les coordonnées de la food sont égales aux coor
 ###main.js
 
 ####déclaration des variables :
-trolley, junk, healthy, lot, points, level,
+trolley, junk, healthy, lot, points, level
+
 junkFoodGame--> tableau contenant les aliments malsains créés en random
+
 healthyFoodGame--> tableau contenant les aliments sains créés en random
+
 lotFoodGam ->tableau contenant les lots d'aliments malsains crées en random au 3e niveau
+
 stopGame --> qd game over ou reinitialisation pour stopper le jeu
+
 pointMaxLevel --> nombre de points a gagner pour passer au level superieur
+
 speedJunk --> vitesse de la malbouffe
+
 speedHealthy --> vitesse des aliments sains
+
 moduloFrameJunk --> créer un aliment malsain toutes les "moduloFrameJunk" frames (toutes les moduloFrameJunk*20ms)
+
 moduloFrameHealthy (idem)
+
 levelOneaffiche --> return true si le gif de felicitation du level s'est deja affiché (pour le pas le rejouer)
+
 levelTwoaffiche (idem)
+
 levelThreeaffiche (idem)
 
 AmbulanceAudio, HealthyAudio, JunkAudio, lotAudio, levelUpAudio, winAudio=new Audio déclaration des fichiers audio associés à des evenements
